@@ -6,9 +6,14 @@ module.exports = (sequelize) => {
     "diets",
     {
       id: {
-        type: DataTypes.INTEGER,
+        // type: DataTypes.INTEGER,
+        // primaryKey: true,
+        // autoIncrement: true,
+        
+        type: DataTypes.UUID,
         primaryKey: true,
-        autoIncrement: true,
+        defaultValue: DataTypes.UUIDV4,
+        allowNull: false,
       },
       name: {
         type: DataTypes.STRING,
