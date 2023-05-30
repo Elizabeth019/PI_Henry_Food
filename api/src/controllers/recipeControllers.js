@@ -11,13 +11,40 @@ const getRecipeId = async (id, source) => {
 
   const recip =
     source === "api"
-      ? (
-          await axios.get(
-            `${URL_SPOONACULAR}/recipes/${id}/information?apiKey=${API_KEY}`
-          )
-        ).data
+      ?
+      // (
+      //     await axios.get(
+      //       `${URL_SPOONACULAR}/recipes/${id}/information?apiKey=${API_KEY}`
+      //     )
+      //   ).data
+
+(
+      await axios.get(
+        `https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`
+        )
+        ).data.results
+
       : await Recipe.findByPk(id);
-  return recip;
+  return recip
+
+//   const detail = recip.find((el) => el.id == id);
+//  console.log(detail);
+  // const { title, summary, healthScore, image, analyzedInstructions, diets } =
+  //   recip;
+
+  // let recipeDetail = {
+  //   id,
+  //   title,
+  //   summary,
+  //   healthScore,
+  //   image,
+  //   steps: analyzedInstructions[0]?.steps.map(
+  //     (el) => el.step !== undefined && el.step
+  //   ),
+  //   diets,
+  // };
+
+  // return recipeDetail;
 };
 
 const searchName = async (name) => {
@@ -25,46 +52,53 @@ const searchName = async (name) => {
   que se pueda buscar independianetemente en mayúscula o minuscula, 
   se debe buscar tanto en la api como en la bdd */
 
-  const databaseName = await Recipe.findAll();
+    const databaseName = await Recipe.findAll();
 
-  const apiName = (
-    await axios.get(
-      `${URL_SPOONACULAR}/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
-    )
-  ).data.results;
+  const apiName =
+    // (
+    //   await axios.get(
+    //     `${URL_SPOONACULAR}/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
+    //   )
+    // ).data.results;
 
-  const apiNameClean = cleanArray(apiName);
+    (
+      await axios.get(
+        `https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`
+      )
+    ).data.results;
+  
+    const apiNameClean = cleanArray(apiName);
 
-  const filterName = apiNameClean.filter((r) =>
-    r.name.toLowerCase().includes(name.toLowerCase())
-  );
-  return [...databaseName, ...filterName];
+    const filterName = apiNameClean.filter((r) =>
+      r.name.toLowerCase().includes(name.toLowerCase())
+    );
+    return [...databaseName, ...filterName];
 };
 
 const searchAllRecipe = async () => {
   const databaseName = await Recipe.findAll();
 
-  const apiName = (
-    await axios.get(
-      `${URL_SPOONACULAR}/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
-    )
-  ).data.results;
+  const apiName =
+    //   (
+    //   await axios.get(
+    //     `${URL_SPOONACULAR}/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
+    //   )
+    // ).data.results;
+
+    (
+      await axios.get(
+        `https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`
+      )
+    ).data.results;
+
   const apiNameClean = cleanArray(apiName);
 
   return [...databaseName, ...apiNameClean];
 };
 
-const createRecipe = async (
-  name,
-  summary,
-  healthScore,
-  image,
-  steps,
-  diets
-) => {
-  let recipeCreate = await Recipe.create({
-    name,
-    summary,
+const createRecipe = async (name, summary, healthScore, image, steps, diets) => {
+  let recipeCreate = await Recipe.create({name,
+summary,
     healthScore,
     image,
     steps,
@@ -74,7 +108,7 @@ const createRecipe = async (
     where: { name: diets },
   });
 
-  await recipeCreate.addDiet(dietDB);
+  await recipeCreate.addDiet(dietDB); 
   return recipeCreate;
 };
 
@@ -84,6 +118,7 @@ const cleanArray = (array) =>
       id: elemento.id,
       name: elemento.title,
       summary: elemento.summary,
+      // score: elemento.score,
       healthScore: elemento.healthScore,
       image: elemento.image,
       steps: elemento.steps,

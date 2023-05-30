@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: blueviolet;
+}
+
+
+/*Searchbar*/
+
+
+.general {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.title {
+    margin-bottom: 0.2%;
+    margin-left: 5%;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.ib {
+    margin-left: 10%;
+}
+
+.input {
+    width: 700px;
+    height: 50px;
+    font-size: 200%;
+    color: grey;
+    border-radius: 20px;
+    text-indent: 5px;
+    outline: none;
+}
+
+.input::placeholder {
+    text-align: center;
+    color: grey;
+    font-size: large;
+}
+
+.btn {
+    margin-left: 50px;
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: rgb(80, 80, 80);
+    color: white;
+    transition: 0.2s;
+}
+
+.img {
+    height: 150px;
+    width: 150px;
+    margin-right: 10px;
+}
+

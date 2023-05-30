@@ -1,0 +1,13 @@
+.container {
+  display:inline-block;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.star {
+    width: 20px;
+    background-color: none;
+}
+
+.typeDiet{
+  text-align: left;
+}

@@ -9,13 +9,13 @@ const recipeId = async (req, res) => {
   const { id } = req.params;
 
   const source = isNaN(id) ? "bdd" : "api";
-
+  
   try {
-    const idRecipe = await getRecipeId(id, source);
+    const idRecipe = await getRecipeId(id, source) ;
     //console.log(idRecipe);
     res.status(200).json(idRecipe);
   } catch (error) {
-    res.status(400).json({ error: `No se Encontro Receta con el id: ${id}` });
+    res.status(400).json({ error: error.message});
   }
 };
 

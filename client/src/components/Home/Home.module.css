@@ -1,0 +1,65 @@
+.cardContainer {
+  position: relative;
+   display: inline-block;
+   border-radius: 30px ;
+   overflow: hidden;
+   margin: 10px;
+   padding: 10px;
+   border: 5px;
+   background-color: rgba(251, 255, 255, 0.295);
+   height: 450px;
+    
+  width: 350px;
+  white-space: break-word;
+   /* background-color: white;  */
+   &:hover {
+    background-color: beige;
+    transform: translateY(-10px, 0);
+    -moz-box-shadow: 13px 13px 11px -1px rgba(232, 225, 232, 0.84);
+    box-shadow: 13px 13px 11px -1px rgba(232, 225, 232, 0.84); 
+  } 
+}
+
+.pag {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.actual {
+    color: white;
+}
+
+.typeDiet{
+  text-align:center;
+}
+
+.recipes{
+    text-align:center;
+}
+
+.ref {
+    display: flex;
+    justify-content: center;
+}
+
+.star {
+    width: 20px;
+    background-color: none;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.starRef {
+    color: white;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.btnYfilt {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    color: white;
+}
