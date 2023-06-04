@@ -7,9 +7,9 @@ const {
 
 const recipeId = async (req, res) => {
   const { id } = req.params;
-
+console.log(id)
   const source = isNaN(id) ? "bdd" : "api";
-  
+  console.log(source)
   try {
     const idRecipe = await getRecipeId(id, source) ;
     //console.log(idRecipe);
@@ -33,11 +33,11 @@ const nameRecipe = async (req, res) => {
 
 
 const newRecipe = async (req, res) => {
-  const { name, summary, healthScore, image, steps, diets } = req.body;
+  const { title, summary, healthScore, image, steps, diets } = req.body;
 
   try {
     const recipeNuevo = await createRecipe(
-      name,
+      title,
       summary,
       healthScore,
       image,

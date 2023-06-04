@@ -1,29 +1,5 @@
-// import Cards from "../Cards/Cards";
-// import style from "./Home.module.css";
-// import { getRecipes } from "../../redux/actions";
-// import { useEffect } from "react";
-// import { useSelector, useDispatch } from "react-redux";
-
-// const Home = () => {
-
-// //se montacon useEffec y debo despacharlo con useDispach
-//     const dispatch = useDispatch();
-
-//     useEffect(() => {
-//         dispatch(getRecipes());
-//     }, [])
-
-//     return (
-//         <div className={style.container}>
-//             <h1>Home</h1>
-//             <Cards/>
-//         </div>
-//     )
-// }
-
-// export default Home;
-
 import React from "react";
+//import Filter from "../Filterd/Filter"
 import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 import SearchBar from "../Navbar/SearchBar";
@@ -38,8 +14,8 @@ import {
   orderByAlphabet,
   orderByHealthScore,
 } from "../../redux/actions";
-import img1 from "../Styles/Star.png";
 import img2 from "../Styles/Star2.png";
+import logo from "../Styles/github.png";
 let prevId = 1;
 
 function Home(props) {
@@ -51,6 +27,7 @@ function Home(props) {
   const numberOfRecipes = page * recipesPage;
   const firstRecipe = numberOfRecipes - recipesPage;
   const showRecipes = props.showedRecipes.slice(firstRecipe, numberOfRecipes);
+  console.log(showRecipes);
 
   const paged = function (pageNumber) {
     setPage(pageNumber);
@@ -77,11 +54,10 @@ function Home(props) {
   };
 
   let handleFilterBySource = (e) => {
-  e.preventDefault();
-  props.filterByResources(e.target.value);
-  setPage(1);
-  setOrder(e.target.value);
-}
+    e.preventDefault();
+    props.filterByResources(e.target.value);
+    setPage(1);
+  };
 
   let handleOrderByAlphabet = (e) => {
     e.preventDefault();
@@ -98,7 +74,7 @@ function Home(props) {
   };
 
   return (
-    <div>
+    <div className={style.container}>
       {/* SearchBar */}
       <SearchBar />
       <hr></hr>
@@ -125,6 +101,7 @@ function Home(props) {
             </span>
           </div>
         )}
+
         <div className={style.btnYfilt}>
           {/* BOTON PARA REFRESCAR */}
           <div>
@@ -140,9 +117,12 @@ function Home(props) {
             </Link>
           </div>
 
+          <div className={style.soloFil}>
           {/* FILTRADO POR TIPO DE DIETA */}
           <div className={style.box}>
+            <span className={style.span_name}>Filter by type of diet </span>
             <select
+              // className={style.select}
               defaultValue={"all"}
               name="diets"
               onChange={(e) => handleFilterByTypeDiet(e)}
@@ -166,9 +146,11 @@ function Home(props) {
 
           {/* ORDEN ALFABÉTICO  */}
           <div className={style.box}>
+            <span className={style.span_name}>Order alphabetically</span>
             <select
+              // className={style.select}
               defaultValue={"DEFAULT"}
-              name="alphabetical"
+              name="Order"
               onChange={(e) => handleOrderByAlphabet(e)}
             >
               <option value="DEFAULT" disabled>
@@ -179,24 +161,24 @@ function Home(props) {
             </select>
           </div>
 
-          <div className={style.select}>
+          <div className={style.box}>
+            <span className={style.span_name}>Filter by Source </span>
             <select
+              // className={style.select}
               defaultValue="Filter by Source"
               onChange={(e) => handleFilterBySource(e)}
             >
               <option disabled>Filter by Source</option>
-              <option value="created">
-                Created by user
-              </option>
-              <option value="apiobtn">
-                API
-              </option>
+              <option value="string">Created by user</option>
+              <option value="api">API</option>
             </select>
           </div>
 
           {/* ORDEN DE MIN A MAX - MAX A MIN  */}
           <div className={style.box}>
+            <span className={style.span_name}>Order by Health Score </span>
             <select
+              // className={style.select}
               defaultValue={"DEFAULT"}
               name="numerical"
               onChange={(e) => handleOrderByScore(e)}
@@ -214,13 +196,14 @@ function Home(props) {
 
         {/* REFERENCIAS PARA ENTENDER LAS ESTRELLAS */}
         <div className={style.ref}>
-          <div>
+          {/* <div>
             <p className={style.starRef}>Score</p>
             <img className={style.star} src={img1} alt="Img NOT FOUND"></img>
-          </div>
+          </div>  */}
           <div>
             <p className={style.starRef}>Heath Score</p>
             <img className={style.star} src={img2} alt="Img NOT FOUND"></img>
+            </div>
           </div>
         </div>
         <hr></hr>
@@ -236,7 +219,7 @@ function Home(props) {
                 <div className={style.cardContainer} key={prevId++}>
                   <Card
                     image={e.image}
-                    name={e.name}
+                    title={e.title}
                     score={e.score}
                     healthScore={e.healthScore}
                     diets={e.diets}
@@ -249,13 +232,17 @@ function Home(props) {
         )}
 
         <hr></hr>
-
+        <div>
+          <a href="https://github.com/Elizabeth019" target="_blank">
+            <img className={style.git} src={logo} alt="github"></img>
+          </a>
+        </div>
         {props.showedRecipes.length === 0 ? (
           <h5 className={style.pub}>Elizabeth Ponce</h5>
         ) : (
           <h5 className={style.pub2}>Elizabeth Ponce</h5>
         )}
-      </div>
+      </div>{" "}
       //{" "}
     </div>
   );

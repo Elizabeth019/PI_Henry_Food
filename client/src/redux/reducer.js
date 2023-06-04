@@ -17,6 +17,7 @@ const initialState = {
   showedRecipes: [],
   diets: [],
   recipeDetails: [],
+
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -52,41 +53,49 @@ export default function rootReducer(state = initialState, action) {
       };
 
     case FILTER_BY_TYPE_DIET:
+
       const all = state.allRecipes;
-      const filter =
+      const getFilterByDiets =
         action.payload === "all"
           ? all
-          : all.filter((r) =>
-              r.diets.find(
-                (d) => d.name === action.payload || d === action.payload
-              )
-            );
+          : all.filter((recipe) => {
+              if (recipe.diets.length > 0)
+                if (recipe.diets.find((element) => element === action.payload))
+                  return recipe;
+            });
+
       return {
         ...state,
-        showedRecipes: filter,
+        recipeDetails: getFilterByDiets,
       };
+    // const all = state.allRecipes;
+    // const filter =
+    //   action.payload === "all"
+    //     ? all
+    //     : all.filter((r) =>
+    //         r.diets.find(
+    //           (d) => d.name === action.payload || d === action.payload
+    //         )
+    //         );
+    //         console.log(all)
+    //     // return {
+    //     //     ...state,
+    //     //     showedRecipes: filter,
+    //     //   };
 
     case FILTER_BY_RESOURCES:
-      const recipesToFilter = state.allRecipes;
-      const typeFilter =
+      const allRecipes1 = state.allRecipes;
+      const statusFiltered2 =
         action.payload === "Filter by Source"
-          ? state.allRecipes
-          : recipesToFilter?.filter((recipe) => {
-              if (
-                action.payload === "created" &&
-                !recipe.hasOwnProperty("idApi")
-              )
-                return recipe;
+          ? allRecipes1.filter((el) => typeof el.id === "string")
+          : allRecipes1.filter((el) => typeof el.id !== "number");
 
-              if (
-                action.payload === "apiobtn" &&
-                recipe.hasOwnProperty("idApi")
-              )
-                return recipe;
-            });
       return {
         ...state,
-        showedRecipes: typeFilter,
+        showedRecipes:
+          action.payload === "api"
+            ? allRecipes1.filter((el) => typeof el.id === "number")
+            : statusFiltered2,
       };
 
     case ORDER_BY_ALPHABET:
@@ -131,19 +140,6 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         recipeDetails: [],
-      };
-
-    case GET_DATABASE:
-      const datBase = state.recipesAll.filter((recipe) => {
-        if (recipe.hasOwnProperty("idApi")) return recipe;
-      });
-      const joinAll = datBase.concat(action.payload);
-
-      return {
-        ...state,
-        dates: action.payload,
-        recipes: joinAll,
-        recipesAll: joinAll,
       };
 
     default:

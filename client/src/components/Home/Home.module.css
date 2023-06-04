@@ -1,23 +1,27 @@
 .cardContainer {
   position: relative;
    display: inline-block;
-   border-radius: 30px ;
+   border-radius: 20px 0px ;
    overflow: hidden;
    margin: 10px;
    padding: 10px;
    border: 5px;
    background-color: rgba(251, 255, 255, 0.295);
-   height: 450px;
-    
-  width: 350px;
+   height: 520px;
+    text-decoration: none;
+  width: 250px;
   white-space: break-word;
    /* background-color: white;  */
-   &:hover {
+     &:hover {
     background-color: beige;
     transform: translateY(-10px, 0);
     -moz-box-shadow: 13px 13px 11px -1px rgba(232, 225, 232, 0.84);
     box-shadow: 13px 13px 11px -1px rgba(232, 225, 232, 0.84); 
   } 
+}
+
+.actual{
+  color: whitesmoke;
 }
 
 .pag {
@@ -26,21 +30,10 @@
     justify-content: center;
 }
 
-.actual {
-    color: white;
-}
-
-.typeDiet{
-  text-align:center;
-}
-
-.recipes{
-    text-align:center;
-}
-
-.ref {
-    display: flex;
-    justify-content: center;
+.select{
+  width: 170px;
+  padding: 5px;
+  border-radius: 10px;
 }
 
 .star {
@@ -48,8 +41,11 @@
     background-color: none;
     margin-left: 50px;
     margin-right: 50px;
+} 
+.ref {
+    display: flex;
+    justify-content: center;
 }
-
 .starRef {
     color: white;
     margin-left: 50px;
@@ -57,9 +53,77 @@
 }
 
 .btnYfilt {
-    padding: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    color: white;
+    padding: 2px;
+    display:inline-block;
+    position: static;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* justify-content:space-between; */
+    border: 1px solid rgb(235, 141, 19)
+}
+
+.btn{
+border-radius: 10px;
+  padding: 10px;
+  color: rgb(235, 141, 19);
+  background-color: black;
+}
+
+.btnYfilt{
+ background-color: rgba(16, 15, 15, 0.333);
+  box-shadow: 0 0 4px rgba(248, 248, 248, 0.826);
+  border-radius: 8px;
+  display:grid;
+  padding: 0.5rem;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #bbb;
+
+}
+
+.soloFil{
+display: flex;
+flex-direction: column;
+gap: 0.5rem;
+}
+
+.btnYfilt select {
+  padding: 6px 12px;
+  color: #333;
+  background-color: #eee;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+.btnYfilt select:hover {
+  outline: none;
+  border: 1px solid #bbb;
+}
+.btnYfilt select option {
+  background-color: #fff;
+}
+.btnYfilt button {
+  border: 1px solid #ddd;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 10px;
+  color: rgb(235, 141, 19);
+  background-color: black;
+}
+.btnYfilt button:hover {
+  color: black;
+  background: rgb(235, 141, 19);
+  cursor: pointer;
+  border: 2px rgb(15, 14, 14) solid;
+  box-shadow: 0px 10px 15px 1px rgb(235, 141, 19)
+}
+
+
+.span_name{
+  font-weight: bold;
+  color: rgb(235, 141, 19);
 }

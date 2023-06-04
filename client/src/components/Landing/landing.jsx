@@ -12,6 +12,7 @@ function Landing () {
   return (
     <div className={styles.container}>
       <h1>Bienvenido al PI de FOOD</h1>
+      <h2 className={styles.h2}>¿Estas buscando que cocinar?<br/> Esta app te puede ayudar!!</h2>
       <button onClick={handleClick} className={styles.boton}>
         Buscar Receta
       </button>

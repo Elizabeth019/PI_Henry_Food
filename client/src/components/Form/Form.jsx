@@ -30,13 +30,12 @@
 //     <div>
 //       <button></button>
 //       </div>
-    
+
 //     </form>
 //   );
 // };
 
 // export default Form;
-
 
 import React, { useEffect } from "react";
 import { validate } from "./Validations/validations";
@@ -45,7 +44,6 @@ import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 import { createRecipe, getDiets } from "../../redux/actions";
 import style from "./Form.module.css";
-
 
 function CreateRecipe(props) {
   const history = useHistory();
@@ -75,7 +73,7 @@ function CreateRecipe(props) {
         ...prevInput,
         [e.target.name]: e.target.value,
       };
-      // setErrors(validate({newInput}));
+      setErrors(validate({ newInput }));
       return newInput;
     });
   };
@@ -124,159 +122,145 @@ function CreateRecipe(props) {
       diets: newArray,
     });
 
-    // setErrors(validate(input));
+    setErrors(validate(input));
   };
 
   return (
-    <div>
-      <div className={style.formRegister}>
-        <div>
-          <h1 className={style.title}>Create Recipe</h1>
-        </div>
-
-        <div>
-          <hr className={style.Registera}></hr>
-        </div>
+    <div className={style.formRegister}>
+      <div>
+        <h1 className={style.title}>Create Recipe</h1>
       </div>
 
-      <form className={style.form} onSubmit={handleSubmit}>
-        <div className={style.div1}>
-          <div>
-            <label>Name: </label>
-          </div>
-          <input
-            type={"text"}
-            name={"name"}
-            value={input.name}
-            onChange={(e) => handleChange(e)}
-          ></input>
-          {!errors.name ? null : <p className={style.err}>{errors.name}</p>}
-        </div>
+      <div>
+        <hr className={style.Registera}></hr>
+      </div>
 
-        <div>
-          <div className={style.txt}>
-            <label>Summary: </label>
-          </div>
-          <textarea
-            className={style.inputext}
-            type={"text"}
-            name={"summary"}
-            value={input.summary}
-            onChange={(e) => handleChange(e)}
-          ></textarea>
-          {!errors.summary ? null : (
-            <p className={style.err}>{errors.summary}</p>
-          )}
-        </div>
-
-        <div>
-          <div className={style.txt}>
-            <label>Score: </label>
-          </div>
-          <input
-            className={style.inputScore}
-            type={"number"}
-            name={"score"}
-            value={input.score}
-            onChange={(e) => handleChange(e)}
-          ></input>
-          {!errors.score ? null : <p className={style.err}>{errors.score}</p>}
-        </div>
-
-        <div>
-          <div className={style.txt}>
-            <label>Health Score: </label>
-          </div>
-          <input
-            className={style.inputScore}
-            type={"number"}
-            name={"healthScore"}
-            value={input.healthScore}
-            onChange={(e) => handleChange(e)}
-          ></input>
-          {!errors.healthScore ? null : (
-            <p className={style.err}>{errors.healthScore}</p>
-          )}
-        </div>
-
-        <div>
-          <div className={style.txt}>
-            <label>URL Image: </label>
-          </div>
-          <input
-            className={style.input}
-            type={"url"}
-            name={"image"}
-            value={input.image}
-            onChange={(e) => handleChange(e)}
-          ></input>
-          {!errors.image ? null : <p className={style.err}>{errors.image}</p>}
-        </div>
-
-        <div>
-          <div className={style.txt}>
-            <label>Steps: </label>
-          </div>
-          <textarea
-            className={style.inputext}
-            type={"text"}
-            name={"steps"}
-            value={input.steps}
-            onChange={(e) => handleChange(e)}
-          ></textarea>
-          {!errors.steps ? null : <p className={style.err}>{errors.steps}</p>}
-        </div>
-
-        <div>
-          <div className={style.txt}>
-            <label>Types of diet: </label>
-          </div>
-          <br></br>
-          {props.diets.slice(0, 13).map((d) => {
-            return (
-              <div key={d} className={style.list}>
-                <label> {d[0].toUpperCase() + d.slice(1)}</label>
-                <input
-                  type="checkbox"
-                  name={d}
-                  value={d}
-                  onChange={(e) => handleCheck(e)}
-                />
-              </div>
-            );
-          })}
-          {!errors.diets ? null : <p className={style.err}>{errors.diets}</p>}
-        </div>
-
-        <div>
-          <div className={style.txt}>
-            <label>ADD Diet: </label>
-          </div>
-          <div>
+      <div className={style.form}>
+        <form onSubmit={handleSubmit}>
+          <div className={style.divF}>
+            <div>
+              <label>Name: </label>
+            </div>
             <input
-              type="text"
-              name={"diet"}
-              value={input.diet}
+              type={"text"}
+              name={"name"}
+              value={input.name}
               onChange={(e) => handleChange(e)}
             ></input>
+            {!errors.name ? null : <p className={style.err}>{errors.name}</p>}
           </div>
-          {!errors.diet ? null : <p className={style.err}>{errors.diet}</p>}
-        </div>
 
-        <br></br>
-        <div>
-          <button className={style.btn1} type="submit">
-            CREATE
-          </button>
-        </div>
-        <br></br>
-        <div>
-          <Link to="/home">
-            <button className={style.btn2}>GO BACK</button>
-          </Link>
-        </div>
-        <br></br>
-      </form>
+          <div>
+            <div className={style.txt}>
+              <label>Summary: </label>
+            </div>
+            <textarea
+              className={style.inputext}
+              type={"text"}
+              name={"summary"}
+              value={input.summary}
+              onChange={(e) => handleChange(e)}
+            ></textarea>
+            {!errors.summary ? null : (
+              <p className={style.err}>{errors.summary}</p>
+            )}
+          </div>
+
+          <div>
+            <div className={style.txt}>
+              <label>Health Score: </label>
+            </div>
+            <input
+              className={style.inputScore}
+              type={"number"}
+              name={"healthScore"}
+              value={input.healthScore}
+              onChange={(e) => handleChange(e)}
+            ></input>
+            {!errors.healthScore ? null : (
+              <p className={style.err}>{errors.healthScore}</p>
+            )}
+          </div>
+
+          <div>
+            <div className={style.txt}>
+              <label>URL Image: </label>
+            </div>
+            <input
+              className={style.input}
+              type={"url"}
+              name={"image"}
+              value={input.image}
+              onChange={(e) => handleChange(e)}
+            ></input>
+            {!errors.image ? null : <p className={style.err}>{errors.image}</p>}
+          </div>
+
+          <div>
+            <div className={style.txt}>
+              <label>Steps: </label>
+            </div>
+            <textarea
+              className={style.inputext}
+              type={"text"}
+              name={"steps"}
+              value={input.steps}
+              onChange={(e) => handleChange(e)}
+            ></textarea>
+            {!errors.steps ? null : <p className={style.err}>{errors.steps}</p>}
+          </div>
+
+          <div>
+            <div className={style.ty}>
+              <label>Types of diet: </label>
+            </div>
+            <br></br>
+            {props.diets.slice(0, 10).map((d) => {
+              return (
+                <div key={d} className={style.ty}>
+                  <label> {d[0].toUpperCase() + d.slice(1)}</label>
+                  <input
+                    type="checkbox"
+                    name={d}
+                    value={d}
+                    onChange={(e) => handleCheck(e)}
+                  />
+                </div>
+              );
+            })}
+            {!errors.diets ? null : <p className={style.err}>{errors.diets}</p>}
+          </div>
+
+          <div>
+            <div className={style.txt}>
+              <label>ADD Diet: </label>
+            </div>
+            <div>
+              <input
+                type="text"
+                name={"diet"}
+                value={input.diet}
+                onChange={(e) => handleChange(e)}
+              ></input>
+            </div>
+            {!errors.diet ? null : <p className={style.err}>{errors.diet}</p>}
+          </div>
+
+          <br></br>
+          <div>
+            <button className={style.boton1} type="submit">
+              CREATE
+            </button>
+          </div>
+          <br></br>
+          <div>
+            <Link to="/home">
+              <button className={style.boton2}>Back</button>
+            </Link>
+          </div>
+          <br></br>
+        </form>
+      </div>
     </div>
   );
 }
@@ -295,9 +279,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateRecipe);
-
-
-
 
 // import React from "react";
 // import { createRecipe, getDiets } from "../../redux/actions";

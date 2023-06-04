@@ -1,5 +1,8 @@
 .container{
-    color: aqua;
+    color: rgb(202, 25, 25);
+    margin: 50px;
+      font-family: 'Lobster', cursive;
+text-align:left;
 }
 
 
@@ -17,8 +20,40 @@
 .boton{
     display:flexbox;
     padding: 15px 15px;
-    margin: 5px;
+    margin: 400px;
     background-color: silver;
     color:aqua;
-    border-radius: 6px;
+    border-radius: 20px;
+}
+
+.h2{
+    font-family: 'Lobster', cursive;
+    color: red;
+    text-align:left;
+}
+
+.boton:hover {
+  color: #fff; /* color de fuente hover */
+}
+.boton::after {
+  content: "";
+  background: #4741d7; /* color de fondo hover */
+  position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  right: -100%;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.boton:hover::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
 }

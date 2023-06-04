@@ -1,21 +1,52 @@
-.div {
+/* .contaainer{
     display: flex;
-    flex-direction: column;
-    color: white;
-    padding-bottom: 80px;
-}
+    text-align: center;
+    align-items: center;
+    border-radius: 10%;
 
-.img {
-    border-radius: 50px;
-    width: 500px;
-}
+    border-style: double;
+} */
 
 .title {
     color: rgb(255, 181, 43);
 }
 
+.div {
+    display: flex;
+    /* justify-content: center; */
+    background-color: rgba(255, 255, 255, 0.548);
+    /* text-align: center; */
+    align-items: center;
+    border-radius: 10%;
+    color:rgb(68, 68, 43)
+}
+
+.typeDiet{
+color: rgb(138, 247, 111);
+}
+.id{
+    color: chartreuse;
+    margin-left: 5px;
+}
+
+.reci{
+    color: azure;
+}
+
+.img {
+    margin-left: 0px;
+    border-radius: 50px;
+    width: 20em;
+    height: 20em;
+}
+.recipe{
+    /* border-style: double; */
+    justify-content:baseline;
+    color: rgb(87, 212, 87);
+}
+
 .health {
-    color: rgb(0, 198, 37);
+    color: rgb(66, 224, 60);
 }
 
 .notFound {
@@ -39,14 +70,17 @@
 }
 
 .btn {
+    padding: 3px;
     margin-top: 30px;
-    height: 60px;
-    width: 170px;
+    height: 40px;
+    width:80px;
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
     color: black;
     font-weight: bold;
     font-size: 20px;
+    position: fixed;
+  left: 20px;
 }
 
 .btn:hover {
@@ -57,3 +91,6 @@
     transition: 0.2s;
     font-size: 30px;
 }
+
+
+

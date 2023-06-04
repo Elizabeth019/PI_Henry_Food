@@ -25,7 +25,6 @@ export default function SearchBar() {
   return (
     <div className={style.general}>
       <div className={style.title}>
-        {/* <img className={style.img} src={img} alt="Img Not Found"></img> */}
         <img className={style.img} src={img} alt="Img Not Found"></img>
       </div>
       <div className={style.ib}>

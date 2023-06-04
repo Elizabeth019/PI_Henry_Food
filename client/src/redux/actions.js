@@ -17,6 +17,7 @@ export function getRecipes() {
   return async function (dispatch) {
     try {
       const response = await axios.get(`${URL}/recipe`);
+      console.log(response)
       return dispatch({
         type: GET_RECIPES,
         payload: response.data,
@@ -42,22 +43,26 @@ export function getRecipeByName(name) {
 }
 
 export function getRecipeDetails(id) {
-  return async function (dispatch) {
-    
-    const response = await axios.get(`${URL}/recipe/${id}`) ;
-    console.log(response)
-    return dispatch({
-      type: GET_RECIPE_DETAILS,
-      payload: response.data,
-    });
+    return async function (dispatch) {
+        try {
+            const response = (await axios.get(`${URL}/recipe/${id}`));
+            console.log(response)
+            return dispatch({
+                type: GET_RECIPE_DETAILS,
+                payload: response.data,
+            });
+        } catch (err) {
+            console.log(err);
   }
+}
+
 }
 
 export function getDiets() {
   return async function (dispatch) {
     try {
       let response = (await axios.get(`${URL}/diet`)).data;
-      // if (response.length < 10) response = await axios.get(`${URL}/diet`);
+       if (response.length < 10) response = await axios.get(`${URL}/diet`);
       console.log(response)
       return dispatch({
         type: GET_DIETS,
@@ -90,7 +95,7 @@ export function filterByTypeDiet(payload) {
   console.log(payload)
   return {
     type: FILTER_BY_TYPE_DIET,
-    payload,
+    payload: payload,
   };
 }
 

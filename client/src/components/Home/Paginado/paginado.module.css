@@ -1,7 +1,7 @@
 .general {
     display: flex;
     justify-content: center;
-    color: rgb(236, 107, 107);
+    color: rgb(235, 141, 19);
 }
 
 .ul {
@@ -9,14 +9,15 @@
     flex-direction: row;
         margin-left: 35px;
     margin-top: 15px;
+
 }
 
 .list {
    width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: rgb(162, 123, 123);
-    /* color: white; */
+    background-color:  rgb(235, 141, 19);;
+    color:   rgb(235, 141, 19);
     text-align: center;
     line-height: 38px;
     /* Igual a la altura del círculo */
@@ -27,27 +28,30 @@
 .btn {
     /* color: white; */
     border: none;
-    /* background-color: black; */
+    background-color: rgb(235, 141, 19);
     font-size: 20px;
     margin: 5px;
     border-radius: 30px;
+     font-weight: bold;
 }
 
-/* .btn:hover {
+.btn:hover {
     background-color: rgb(255, 255, 255);
-    color: black
-} */
+    color: black,
+    
+}
 
 .bn {
-    /* color: white; */
+    color: white;
     border-radius: 30px;
     background-color: black;
+    font-weight: bold;
     font-size: 20px;
     margin-left: 20px;
     margin-right: -20px;
     width: 40px;
     height: 40px;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .bn:hover {
@@ -56,5 +60,5 @@
 }
 
 .bn:disabled {
-    color: red;
+    color: rgb(235, 141, 19);
 }
