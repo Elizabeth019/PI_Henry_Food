@@ -5,7 +5,7 @@ import img2 from "../Styles/Star2.png";
 
 const Card = (props) => {
   console.log(props);
-  const { title, image, healthScore, diets, id } = props;
+  const {id, title, image, healthScore, diets,  } = props;
 
   //   var stars = Math.round(score / 10 / 2);
   //       if (stars === 0) {

@@ -7,12 +7,12 @@ const {
 
 const recipeId = async (req, res) => {
   const { id } = req.params;
-console.log(id)
+
   const source = isNaN(id) ? "bdd" : "api";
-  console.log(source)
+
   try {
     const idRecipe = await getRecipeId(id, source) ;
-    //console.log(idRecipe);
+
     res.status(200).json(idRecipe);
   } catch (error) {
     res.status(400).json({ error: error.message});
@@ -26,7 +26,6 @@ const nameRecipe = async (req, res) => {
     const search = name ? await searchName(name) : await searchAllRecipe();
     res.status(200).json(search);
   } catch (error) {
-    // res.status(404).json({ error :`No se encontro la receta con el nombre ${name}` });
     res.status(400).json({ error: error.message });
   }
 };
@@ -44,6 +43,7 @@ const newRecipe = async (req, res) => {
       steps,
       diets
     );
+    console.log("nuevo",recipeNuevo)
     res.status(201).json(recipeNuevo);
   } catch (error) {
     res
@@ -51,27 +51,6 @@ const newRecipe = async (req, res) => {
       .json({ error: error.message });
   }
 };
-
-//   const infoApi = await resApi?.map((r) => {
-//     return {
-//       id: r.id,
-//       name: r.title,
-//       summary: r.summary,
-//       score: r.spoonacularScore,
-//       healthScore: r.healthScore,
-//       image: r.image,
-//       steps: r.analyzedInstructions[0]?.steps.map((s) => {
-//         return {
-//           number: s.number,
-//           step: s.step,
-//         };
-//       }),
-//       diets: r.diets,
-//       dish: r.dishTypes,
-//     };
-//   });
-//   return infoApi;
-// };
 
 // const get_DataBase = async () => {
 //   return await Recipe.findAll({

@@ -6,10 +6,6 @@ module.exports = (sequelize) => {
     "diets",
     {
       id: {
-        // type: DataTypes.INTEGER,
-        // primaryKey: true,
-        // autoIncrement: true,
-        
         type: DataTypes.UUID,
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4,

@@ -28,16 +28,18 @@ export function getRecipes() {
   };
 }
 
-export function getRecipeByName(name) {
+export function getRecipeByName(title) {
   return async function (dispatch) {
     try {
-      const response = await axios.get(`${URL}/recipe/?name=${name}`);
+      const response = await axios.get(`${URL}/recipe/?name=${title}`);
+      console.log(response)
       return dispatch({
         type: GET_RECIPE_BY_NAME,
         payload: response.data,
       });
     } catch (err) {
-      alert("Recipe not found.");
+      // alert("Recipe not found.");
+      console.log(err)
     }
   };
 }
@@ -76,6 +78,7 @@ export function getDiets() {
 
 }
 export function createRecipe(payload) {
+  console.log(payload)
   return async function (dispatch) {
     try {
       const response = await axios.post(`${URL}/recipe`, payload);

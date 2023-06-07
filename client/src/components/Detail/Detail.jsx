@@ -26,7 +26,8 @@ export default function Detail() {
         <img className={style.img} src={receta.image} alt={receta.title} />
         <h3>Steps: {receta.steps}</h3>
       </div>
-      <div>
+      <div className={style.health}>
+      <div className={style.container_health}>
         <h4
           className={style.reci}
           id="recipe"
@@ -42,6 +43,7 @@ export default function Detail() {
             <li className={style}>{d}</li>
           ))}
         </h2>
+        </div>
       </div>
     </div>
   );

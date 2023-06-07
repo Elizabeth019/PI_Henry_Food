@@ -1,93 +1,109 @@
+.container{
+  height: 300px;
+}
+
 .cardContainer {
   position: relative;
-   display: inline-block;
-   border-radius: 20px 0px ;
-   overflow: hidden;
-   margin: 10px;
-   padding: 10px;
-   border: 5px;
-   background-color: rgba(251, 255, 255, 0.295);
-   height: 520px;
-    text-decoration: none;
+  display: inline-block;
+  border-radius: 20px 0px;
+  overflow: hidden;
+  margin: 10px;
+  padding: 10px;
+  border: 5px;
+  background-color: rgba(251, 255, 255, 0.295);
+  height: 520px;
+  text-decoration: none;
   width: 250px;
   white-space: break-word;
-   /* background-color: white;  */
-     &:hover {
+  border: 1px solid rgb(235, 141, 19);
+  &:hover {
     background-color: beige;
     transform: translateY(-10px, 0);
     -moz-box-shadow: 13px 13px 11px -1px rgba(232, 225, 232, 0.84);
-    box-shadow: 13px 13px 11px -1px rgba(232, 225, 232, 0.84); 
-  } 
+    box-shadow: 13px 13px 11px -1px rgba(232, 225, 232, 0.84);
+  }
 }
 
-.actual{
+.actual {
   color: whitesmoke;
 }
 
 .pag {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.select{
+.select {
   width: 170px;
   padding: 5px;
   border-radius: 10px;
 }
 
 .star {
-    width: 20px;
-    background-color: none;
-    margin-left: 50px;
-    margin-right: 50px;
-} 
+  width: 20px;
+  background-color: none;
+  margin-left: 50px;
+  margin-right: 50px;
+}
 .ref {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .starRef {
-    color: white;
-    margin-left: 50px;
-    margin-right: 50px;
+  color: white;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .btnYfilt {
-    padding: 2px;
-    display:inline-block;
-    position: static;
-    flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap;
-    /* justify-content:space-between; */
-    border: 1px solid rgb(235, 141, 19)
+  padding: 2px;
+  display: inline-block;
+  position: static;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  border: 1px solid rgb(235, 141, 19);
+  width: 250px;
+  margin-left: 10px;
+  
+}
+.filt_card{
+display: flex;
+align-items: flex-start;
 }
 
-.btn{
-border-radius: 10px;
+.btn {
+  border-radius: 10px;
   padding: 10px;
   color: rgb(235, 141, 19);
   background-color: black;
+  margin-top: 5px;
 }
 
-.btnYfilt{
- background-color: rgba(16, 15, 15, 0.333);
+.btnYfilt {
+  background-color: rgba(16, 15, 15, 0.333);
   box-shadow: 0 0 4px rgba(248, 248, 248, 0.826);
-  border-radius: 8px;
-  display:grid;
+  border-radius: 20px 0px;
+  display: grid;
   padding: 0.5rem;
+  margin-top: 15px;
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   color: #bbb;
-
+  
 }
 
-.soloFil{
-display: flex;
-flex-direction: column;
-gap: 0.5rem;
+.soloFil {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 200px;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 200rem;
 }
 
 .btnYfilt select {
@@ -96,8 +112,11 @@ gap: 0.5rem;
   background-color: #eee;
   border: 1px solid #ddd;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 20px;
   margin-right: 10px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
 }
 .btnYfilt select:hover {
   outline: none;
@@ -109,7 +128,7 @@ gap: 0.5rem;
 .btnYfilt button {
   border: 1px solid #ddd;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 10px;
   color: rgb(235, 141, 19);
   background-color: black;
@@ -119,11 +138,14 @@ gap: 0.5rem;
   background: rgb(235, 141, 19);
   cursor: pointer;
   border: 2px rgb(15, 14, 14) solid;
-  box-shadow: 0px 10px 15px 1px rgb(235, 141, 19)
+  box-shadow: 0px 10px 15px 1px rgb(235, 141, 19);
 }
 
-
-.span_name{
+.span_name {
   font-weight: bold;
   color: rgb(235, 141, 19);
+}
+
+.fin{
+  display:inline-block;
 }

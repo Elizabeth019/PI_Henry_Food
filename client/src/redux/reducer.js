@@ -9,7 +9,6 @@ import {
   ORDER_BY_ALPHABET,
   ORDER_BY_HEALTH_SCORE,
   CLEAR_DETAIL,
-  GET_DATABASE,
 } from "./actions";
 
 const initialState = {
@@ -17,7 +16,6 @@ const initialState = {
   showedRecipes: [],
   diets: [],
   recipeDetails: [],
-
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -49,39 +47,24 @@ export default function rootReducer(state = initialState, action) {
 
     case CREATE_RECIPE:
       return {
-        ...state,
+        ...state
       };
 
     case FILTER_BY_TYPE_DIET:
-
       const all = state.allRecipes;
-      const getFilterByDiets =
+      const filter =
         action.payload === "all"
           ? all
-          : all.filter((recipe) => {
-              if (recipe.diets.length > 0)
-                if (recipe.diets.find((element) => element === action.payload))
-                  return recipe;
-            });
-
+          : all.filter((r) =>
+              r.diets.find(
+                (d) => d.name === action.payload || d === action.payload
+              )
+            );
+      console.log(all);
       return {
         ...state,
-        recipeDetails: getFilterByDiets,
+        showedRecipes: filter,
       };
-    // const all = state.allRecipes;
-    // const filter =
-    //   action.payload === "all"
-    //     ? all
-    //     : all.filter((r) =>
-    //         r.diets.find(
-    //           (d) => d.name === action.payload || d === action.payload
-    //         )
-    //         );
-    //         console.log(all)
-    //     // return {
-    //     //     ...state,
-    //     //     showedRecipes: filter,
-    //     //   };
 
     case FILTER_BY_RESOURCES:
       const allRecipes1 = state.allRecipes;
@@ -103,13 +86,13 @@ export default function rootReducer(state = initialState, action) {
       sortByAlphabet =
         action.payload === "atoz" //(de la A a la Z)
           ? state.showedRecipes.sort(function (a, b) {
-              if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
-              if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+              if (a.title.toLowerCase() > b.title.toLowerCase()) return 1;
+              if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
               return 0;
             })
           : state.showedRecipes.sort(function (a, b) {
-              if (a.name.toLowerCase() < b.name.toLowerCase()) return 1;
-              if (a.name.toLowerCase() > b.name.toLowerCase()) return -1;
+              if (a.title.toLowerCase() < b.title.toLowerCase()) return 1;
+              if (a.title.toLowerCase() > b.title.toLowerCase()) return -1;
               return 0;
             });
       return {

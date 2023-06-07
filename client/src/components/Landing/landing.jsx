@@ -12,9 +12,12 @@ function Landing () {
   return (
     <div className={styles.container}>
       <h1>Bienvenido al PI de FOOD</h1>
-      <h2 className={styles.h2}>¿Estas buscando que cocinar?<br/> Esta app te puede ayudar!!</h2>
+      <h2 className={styles.h2}>
+        ¿Estas buscando que cocinar?
+        <br /> Esta app te puede ayudar!!
+      </h2>
       <button onClick={handleClick} className={styles.boton}>
-        Buscar Receta
+        get into
       </button>
       <video className={styles.video} autoPlay loop muted>
         <source src={video} type="video/mp4"></source>
