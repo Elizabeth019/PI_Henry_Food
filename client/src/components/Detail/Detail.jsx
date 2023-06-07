@@ -20,29 +20,32 @@ export default function Detail() {
         Back
       </Link>
       <h1 className={style.title}>{receta.title}</h1>
+      <h2 className={style.health}>Health Score: {receta.healthScore}</h2>
       <h4 className={style.id}>{receta.id}</h4>
 
       <div className={style.div}>
         <img className={style.img} src={receta.image} alt={receta.title} />
-        <h3>Steps: {receta.steps}</h3>
+        <h2>Steps: </h2>
+        <h3>{receta.steps}</h3>
       </div>
       <div className={style.health}>
-      <div className={style.container_health}>
-        <h4
-          className={style.reci}
-          id="recipe"
-          dangerouslySetInnerHTML={{ __html: receta.summary }}
-        ></h4>
-      </div>
+        <div className={style.container_health}>
+          <div className={style.reci}>
+            <h2 >Summary</h2>
+            <h4
+              id="recipe"
+              dangerouslySetInnerHTML={{ __html: receta.summary }}
+            ></h4>
+          </div>
+        </div>
 
-      <h2 className={style.health}>Health Score: {receta.healthScore}</h2>
-      <div>
-        <h2 className={style.typeDiet}>
-          Types of diets:
-          {receta.diets?.map((d) => (
-            <li className={style}>{d}</li>
-          ))}
-        </h2>
+        <div className={style.typ}>
+          <h2 className={style.typeDiet}>
+            Types of diets:
+            {receta.diets?.map((d) => (
+              <li className={style}>{d}</li>
+            ))}
+          </h2>
         </div>
       </div>
     </div>

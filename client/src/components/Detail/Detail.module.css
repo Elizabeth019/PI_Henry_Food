@@ -28,9 +28,21 @@
     margin-bottom: 5px;
 }
 
+.typ{
+     background-color: rgba(255, 255, 255, 0.548);
+    font-family: 'Lobster', cursive;
+    margin: 10px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+    height: 350px;
+    width: 600px;
+    
+}
+
 .typeDiet{
-color: rgb(138, 247, 111);
+color: rgb(68, 68, 43);
 font-family: 'Lobster', cursive;
+margin-top: 40px;
 }
 .id{
     color: chartreuse;
@@ -39,13 +51,13 @@ font-family: 'Lobster', cursive;
 
 .reci{
     color: azure;
-    background-color: rgba(0, 0, 0, 0.705);
+    background-color: rgba(255, 255, 255, 0.548);
     font-family: 'Lobster', cursive;
     margin: 10px;
     border-radius: 20px;
     letter-spacing: 2px;
-    height: 50px;
-    width: 500px;
+    height: 350px;
+    width: 600px;
 }
 
 .img {
@@ -92,7 +104,7 @@ font-family: 'Lobster', cursive;
 
 .btn {
     padding: 3px;
-    margin-top: 10px;
+    margin-top: 0px;
     margin-left: 0px;
     height: 40px;
     width:80px;
