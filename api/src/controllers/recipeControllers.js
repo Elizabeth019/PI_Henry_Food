@@ -4,11 +4,6 @@ const { API_KEY, URL_SPOONACULAR } = process.env;
 require("dotenv").config();
 
 const getRecipeId = async (id, source) => {
-  /*  debo buscar por id, 
-      debe devolver la info de dicha receta pedida,
-      de incluir los datos tipo diets, 
-      debe funcionar para la api como para la base de datos */
-
   const recip =
     source === "api"
       ? await axios.get(
@@ -44,7 +39,8 @@ const getRecipeId = async (id, source) => {
     diets,
   };
 
-  return recipeDetail;
+    return recipeDetail;
+    
   } else {
     const dbInfo = detail.map(el => {
       const dietas = el.diets.map(e => e.name)
@@ -64,10 +60,6 @@ const getRecipeId = async (id, source) => {
 };
 
 const searchName = async (name) => {
-  /*debo obtener todas las recetas que coincidan,
-  que se pueda buscar independianetemente en mayúscula o minuscula, 
-  se debe buscar tanto en la api como en la bdd */
-
   const databaseName = await Recipe.findAll();
 
   const apiName =
@@ -143,7 +135,6 @@ const createRecipe = async (
   let dietDB = await Diets.findAll({
     where: { name: diets },
   });
-//console.log("dietas",dietDB)
   await recipeCreate.addDiet(dietDB);
   return recipeCreate;
 };

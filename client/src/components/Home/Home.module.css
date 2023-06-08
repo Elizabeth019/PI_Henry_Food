@@ -1,6 +1,4 @@
-.container{
-  height: 300px;
-}
+
 
 .cardContainer {
   position: relative;
@@ -70,7 +68,7 @@
 }
 .filt_card{
 display: flex;
-align-items: flex-start;
+height: 128vw;
 }
 
 .btn {
@@ -89,7 +87,6 @@ align-items: flex-start;
   padding: 0.5rem;
   margin-top: 15px;
   margin-bottom: 10px;
-  display: flex;
   flex-direction: column;
   gap: 0.5rem;
   color: #bbb;
@@ -148,4 +145,9 @@ align-items: flex-start;
 
 .fin{
   display:inline-block;
+  background-color: rgba(235, 141, 19, 0.501);
+  border-radius: 60px;
+}
+.pub{
+  color:rgb(235, 141, 19);
 }

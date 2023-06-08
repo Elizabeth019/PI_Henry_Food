@@ -74,8 +74,8 @@ function Home(props) {
   };
 
   return (
-    <div className={style.container}>
-      {/* SearchBar */}
+    <div >
+     
       <SearchBar setPage={setPage} />
       <hr></hr>
       <div className={style.pag}>
@@ -103,14 +103,13 @@ function Home(props) {
         )}
         <div className={style.filt_card}>
           <div className={style.btnYfilt}>
-            {/* BOTON PARA REFRESCAR */}
+           
             <div>
               <button className={style.btn} onClick={handleClick}>
                 REFRESH
               </button>
             </div>
 
-            {/* BOTON PARA CREAR UNA RECETA  */}
             <div>
               <Link to="/recipe">
                 <button className={style.btn}>CREATE</button>
@@ -118,7 +117,7 @@ function Home(props) {
             </div>
 
             <div className={style.soloFil}>
-              {/* FILTRADO POR TIPO DE DIETA */}
+
               <div className={style.box}>
                 <span className={style.span_name}>Filter by type of diet </span>
                 <select
@@ -146,7 +145,6 @@ function Home(props) {
                 </select>
               </div>
 
-              {/* ORDEN ALFABÉTICO  */}
               <div className={style.box}>
                 <span className={style.span_name}>Order alphabetically</span>
                 <select
@@ -176,7 +174,6 @@ function Home(props) {
                 </select>
               </div>
 
-              {/* ORDEN DE MIN A MAX - MAX A MIN  */}
               <div className={style.box}>
                 <span className={style.span_name}>Order by Health Score </span>
                 <select
@@ -202,7 +199,6 @@ function Home(props) {
             </div></div>
           </div>
         
-        {/* <hr></hr> */}
         <div>
           {props.showedRecipes.length === 0 ? (
             <div className={style.load}>
@@ -234,13 +230,13 @@ function Home(props) {
         <a href="https://github.com/Elizabeth019" target="_blank">
           <img className={style.git} src={logo} alt="github"></img>
         </a>
-      
+      </div>
       {props.showedRecipes.length === 0 ? (
         <h5 className={style.pub}>Elizabeth Ponce</h5>
       ) : (
-        <h5 className={style.pub2}>Elizabeth Ponce</h5>
+        <h5 className={style.pub}>Elizabeth Ponce</h5>
         )}
-      </div>
+      
     </div>
   );
 }

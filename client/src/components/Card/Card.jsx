@@ -1,22 +1,16 @@
 import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
-import img from "../Styles/Star.png";
 import img2 from "../Styles/Star2.png";
 
 const Card = (props) => {
   console.log(props);
   const {id, title, image, healthScore, diets,  } = props;
 
-  //   var stars = Math.round(score / 10 / 2);
-  //       if (stars === 0) {
-  //           stars = stars + 1;
-  //       }
   var stars2 = Math.round(healthScore / 10 / 2);
   if (stars2 === 0) {
     stars2 = stars2 + 1;
   }
   return (
-    // <div className={styles.container}>
     <div className={styles.cardContainer}>
       {/* LÓGICA PARA LAS ESTRELLAS */}
             {/* 0 - 19 --> 1

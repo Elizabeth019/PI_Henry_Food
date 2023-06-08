@@ -84,7 +84,7 @@ export default function rootReducer(state = initialState, action) {
     case ORDER_BY_ALPHABET:
       let sortByAlphabet = [...state.showedRecipes];
       sortByAlphabet =
-        action.payload === "atoz" //(de la A a la Z)
+        action.payload === "atoz" 
           ? state.showedRecipes.sort(function (a, b) {
               if (a.title.toLowerCase() > b.title.toLowerCase()) return 1;
               if (a.title.toLowerCase() < b.title.toLowerCase()) return -1;
@@ -100,7 +100,7 @@ export default function rootReducer(state = initialState, action) {
         showedRecipes: sortByAlphabet,
       };
 
-    case ORDER_BY_HEALTH_SCORE: //(por puntuacion)
+    case ORDER_BY_HEALTH_SCORE: 
       let sortedByScore = [...state.showedRecipes];
       console.log(sortedByScore);
       sortedByScore =
