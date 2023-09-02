@@ -21,7 +21,7 @@
 .formRegister {
   display: flex;
   position: static;
-  background-image: url("C:\Users\Pc\Desktop\PI-Food\client\src\components\Styles\libretaa3.jpeg");
+  background-image: url("../Styles/libretaa3.jpeg");
   color: rgb(235, 141, 19);
   background-size: cover;
   background-repeat: no-repeat;
