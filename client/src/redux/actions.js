@@ -11,7 +11,9 @@ export const ORDER_BY_HEALTH_SCORE = "ORDER_BY_HEALTH_SCORE";
 export const CLEAR_DETAIL = "CLEAR_DETAIL";
 export const GET_DATABASE = "GET_DATABASE";
 
-const URL = "http://localhost:3001";
+
+const URL = process.env.NODE_ENV ?? "http://localhost:3001";
+
 
 export function getRecipes() {
   return async function (dispatch) {
