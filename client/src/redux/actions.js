@@ -12,7 +12,7 @@ export const CLEAR_DETAIL = "CLEAR_DETAIL";
 export const GET_DATABASE = "GET_DATABASE";
 
 
-const URL = process.env.REACT_APP_API || "http://localhost:3001";
+const URL = process.env.REACT_APP_API ?? "http://localhost:3001";
 
 
 export function getRecipes() {
