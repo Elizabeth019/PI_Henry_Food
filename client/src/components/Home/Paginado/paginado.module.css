@@ -4,12 +4,13 @@
     color: rgb(235, 141, 19);
 }
 
+
 .ul {
     display: flex;
     flex-direction: row;
         margin-left: 35px;
     margin-top: 15px;
-
+    flex-grow: 1
 }
 
 .list {
@@ -61,4 +62,17 @@
 
 .bn:disabled {
     color: rgb(235, 141, 19);
+}
+
+@media (max-width: 375px) {
+    /* .general{
+        flex-wrap: wrap;
+    } */
+    .ul {
+        flex-wrap: wrap;
+    }
+    .list{
+        flex-wrap: wrap;
+    }
+    
 }

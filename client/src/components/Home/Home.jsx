@@ -201,7 +201,7 @@ function Home(props) {
         
         <div>
           {props.showedRecipes.length === 0 ? (
-            <div className={style.load}>
+            <div className={style.loader}>
               <h5>Loading...</h5>
             </div>
           ) : (
