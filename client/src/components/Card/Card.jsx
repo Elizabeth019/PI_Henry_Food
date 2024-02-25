@@ -57,7 +57,7 @@ const Card = (props) => {
             alt="imag not found"
           />
         </Link>
-        <h2 className={styles.name}>{title}</h2>
+        <h2 className={styles.name}>{title.length > 20 ? title.substring(0, 20) + "..." : title}</h2>
         <h2 className={styles.typeDiet}>
           Type of diets:
           {props.diets?.map((d) => (

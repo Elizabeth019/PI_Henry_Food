@@ -6,7 +6,9 @@
 }
 
 .search{
-    margin-left: 500px;
+    /* margin-left: 500px; 
+    margin-left: 30%;*/
+    flex-grow: 1
 }
 .title {
     margin-bottom: 0.2%;
@@ -59,3 +61,20 @@
     margin-right: 10px;
 }
 
+
+@media screen and (max-width: 768px) {
+    .img {
+        height: 100px;
+        width: 100px;
+    }
+ 
+}  
+ @media (max-width: 600px) {
+        /* En pantallas con un ancho máximo de 600px */
+        .input {
+            margin-left: auto;
+            width: 80%; /* Utiliza un porcentaje en lugar de un valor fijo */
+           /* margin: 0 auto;  Esto centrará el elemento horizontalmente */
+            text-align: center; /* Esto centrará el texto dentro del elemento */
+        }
+    }
